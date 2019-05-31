@@ -133,7 +133,7 @@ The convention for ``conversion_direction`` is that the first object in the mode
 
 ### Download Demo Data
 
-Download and unzip [demo_data](https://datashare.is.ed.ac.uk/handle/10283/2211) into ./demo_data
+Download and unzip [demo_data](https://drive.google.com/file/d/1e52oFWSCLgGfew-611VQWltV84dhKD7H/view?usp=sharing) into ./demo_data
 
 ### VCC2016 SF1 and TF2 Conversion
 
