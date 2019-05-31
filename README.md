@@ -100,7 +100,7 @@ For example, to train SUV model for RSR2015 Part1 male development part:
 ```bash
 $ python main.py --gender male --part 1 --dev_eval dev --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
 ```
-
+And the path in this command should be changed according to your path before running.
 
 ## Demo
 
