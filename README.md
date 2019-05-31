@@ -36,10 +36,6 @@ Link of Paper:
 
 ## Usage
 
-### Download Demo Data
-
-Download and unzip [demo_data](https://datashare.is.ed.ac.uk/handle/10283/2211) into ./demo_data
-
 ### Train Model
 
 To have a good conversion capability, the training would take at least 1000 epochs, which could take very long time even using a NVIDIA GTX TITAN X graphic card. 
@@ -134,6 +130,10 @@ $ python convert.py --model_dir ./model/sf1_tm1 --model_name sf1_tm1.ckpt --data
 The convention for ``conversion_direction`` is that the first object in the model filename is A, and the second object in the model filename is B. In this case, ``SF1 = A`` and ``TM1 = B``.
 
 ## Demo
+
+### Download Demo Data
+
+Download and unzip [demo_data](https://datashare.is.ed.ac.uk/handle/10283/2211) into ./demo_data
 
 ### VCC2016 SF1 and TF2 Conversion
 
