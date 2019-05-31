@@ -56,12 +56,12 @@ class Trainer():
                 else:
                     data = Variable(data).type(torch.FloatTensor)
                 # utt_task:
-                self.hidden_all = self.init_hidden(self.args.batch_size, self.args.dim_all)
-                self.hidden_utt = self.init_hidden(self.args.batch_size, self.args.dim_utt)
+                self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
+                self.hidden_utt = self.init_hidden(data.shape[0], self.args.dim_utt)
 
-                index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + self.args.batch_size]]
+                index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + data.shape[0]]]
                 
-                target_utt = torch.from_numpy(self.data_pack.ytr_utt[randseq[cnt: cnt + self.args.batch_size]])
+                target_utt = torch.from_numpy(self.data_pack.ytr_utt[randseq[cnt: cnt + data.shape[0]]])
                 if self.args.GPU_avaiable:
                     target_utt = Variable(target_utt).type(torch.LongTensor).cuda()
                 else:
@@ -76,12 +76,12 @@ class Trainer():
                 self.optimizer.step()
     
                 # spk_task:
-                self.hidden_all = self.init_hidden(self.args.batch_size, self.args.dim_all)
-                self.hidden_spk = self.init_hidden(self.args.batch_size, self.args.dim_spk)
+                self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
+                self.hidden_spk = self.init_hidden(data.shape[0], self.args.dim_spk)
 
-                index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + self.args.batch_size]]
+                index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + data.shape[0]]]
                 
-                target_spk = torch.from_numpy(self.data_pack.ytr_spk[randseq[cnt: cnt + self.args.batch_size]])
+                target_spk = torch.from_numpy(self.data_pack.ytr_spk[randseq[cnt: cnt + data.shape[0]]])
                 if self.args.GPU_avaiable:
                     target_spk = Variable(target_spk).type(torch.LongTensor).cuda()
                 else:
@@ -131,11 +131,11 @@ class Trainer():
         correct_utt = 0
         cnt = 0
 
-        for batch_idx in range(int(len(self.data_pack.fea_tr_key_list) // self.args.batch_size) + 1):
+        for batch_idx in range(int(len(self.data_pack.fea_te_key_list) // self.args.batch_size) + 1):
             # ses = yte_ses[cnt:min(len(fea_te_key_list), cnt + batch_size)]
 
 
-            data = torch.from_numpy(self.data_pack.xte[cnt: cnt + self.args.batch_size])
+            data = torch.from_numpy(self.data_pack.xte[cnt: min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)])
             if self.args.GPU_avaiable:
                 data = Variable(data).type(torch.FloatTensor).cuda()
             else:
@@ -143,8 +143,8 @@ class Trainer():
 
 
             # spk_task:
-            self.hidden_all = self.init_hidden(self.args.batch_size, self.args.dim_all)
-            self.hidden_spk = self.init_hidden(self.args.batch_size, self.args.dim_utt)
+            self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
+            self.hidden_spk = self.init_hidden(data.shape[0], self.args.dim_utt)
             index_te_sub = self.data_pack.index_te[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
 
             target_te_spk_numpy = self.data_pack.yte_spk[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
@@ -162,8 +162,8 @@ class Trainer():
                 correct_spk += pred.eq(target_te_spk.data.view_as(pred)).sum()
 
             # utt_task:
-            self.hidden_all = self.init_hidden(self.args.batch_size, self.args.dim_all)
-            self.hidden_utt = self.init_hidden(self.args.batch_size, self.args.dim_utt)
+            self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
+            self.hidden_utt = self.init_hidden(data.shape[0], self.args.dim_utt)
             index_te_sub = self.data_pack.index_te[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
             target_te_utt_numpy = self.data_pack.yte_utt[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
             target_te_utt = torch.from_numpy(target_te_utt_numpy)
