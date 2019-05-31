@@ -1,4 +1,4 @@
-# Speaker-utterance-verification(SUV) framework for text-dependent Speaker Verification
+# Speaker-utterance-verification (SUV) Framework for Text-dependent Speaker Verification
 
 Liu Tianchi
 
