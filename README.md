@@ -14,6 +14,7 @@ Link of Paper:
 * Numpy 1.16.2
 * pytorch 1.1.0
 * [kaldi_io](https://github.com/vesis84/kaldi-io-for-python)
+* kaldi
 
 
 ## Files
@@ -38,42 +39,47 @@ Link of Paper:
 
 ### Train Model
 
-To have a good conversion capability, the training would take at least 1000 epochs, which could take very long time even using a NVIDIA GTX TITAN X graphic card. 
-
 ```bash
-$ python train.py --help
-usage: train.py [-h] [--train_A_dir TRAIN_A_DIR] [--train_B_dir TRAIN_B_DIR]
-                [--model_dir MODEL_DIR] [--model_name MODEL_NAME]
-                [--random_seed RANDOM_SEED]
-                [--validation_A_dir VALIDATION_A_DIR]
-                [--validation_B_dir VALIDATION_B_DIR]
-                [--output_dir OUTPUT_DIR]
-                [--tensorboard_log_dir TENSORBOARD_LOG_DIR]
+$ python main.py --help
+usage: main.py [-h] [--gender GENDER] [--part PART] [--dev_eval DEV_EVAL]
+               [--feature_path FEATURE_PATH] [--trails_path TRAILS_PATH]
+               [--kaldi_io_path KALDI_IO_PATH] [--demo DEMO] [--epochs EPOCHS]
+               [--batch_size BATCH_SIZE] [--GPU_avaiable GPU_AVAIABLE]
+               [--dim_all DIM_ALL] [--dim_spk DIM_SPK] [--dim_utt DIM_UTT]
+               [--load_model LOAD_MODEL] [--model_path MODEL_PATH]
+               [--a_trade_off_flag A_TRADE_OFF_FLAG]
 
-Train CycleGAN model for datasets.
+Speaker-Utterance Verification Framework
 
 optional arguments:
   -h, --help            show this help message and exit
-  --train_A_dir TRAIN_A_DIR
-                        Directory for A.
-  --train_B_dir TRAIN_B_DIR
-                        Directory for B.
-  --model_dir MODEL_DIR
-                        Directory for saving models.
-  --model_name MODEL_NAME
-                        File name for saving model.
-  --random_seed RANDOM_SEED
-                        Random seed for model training.
-  --validation_A_dir VALIDATION_A_DIR
-                        Convert validation A after each training epoch. If set
-                        none, no conversion would be done during the training.
-  --validation_B_dir VALIDATION_B_DIR
-                        Convert validation B after each training epoch. If set
-                        none, no conversion would be done during the training.
-  --output_dir OUTPUT_DIR
-                        Output directory for converted validation voices.
-  --tensorboard_log_dir TENSORBOARD_LOG_DIR
-                        TensorBoard log directory.
+  --gender GENDER       gender of data set, male or female
+  --part PART           part of data set, 1 or 2
+  --dev_eval DEV_EVAL   development or evaluation part of data set, dev or
+                        eval
+  --feature_path FEATURE_PATH
+                        the path to the feature and data folder of RSR2015
+                        database
+  --trails_path TRAILS_PATH
+                        the path to the trails folder of RSR2015 database
+  --kaldi_io_path KALDI_IO_PATH
+  --demo DEMO           whether to run the demo set by author
+  --epochs EPOCHS       total epochs to train
+  --batch_size BATCH_SIZE
+                        batch_size for both training and testing
+  --GPU_avaiable GPU_AVAIABLE
+                        whether to use GPU
+  --dim_all DIM_ALL     hidden dimension of first layer LSTM
+  --dim_spk DIM_SPK     hidden dimension of spk LSTM
+  --dim_utt DIM_UTT     hidden dimension of utt LSTM
+  --load_model LOAD_MODEL
+                        whether to load model
+  --model_path MODEL_PATH
+                        the path of the model that you want to load
+  --a_trade_off_flag A_TRADE_OFF_FLAG
+                        whether to activate a_trade_off function, if activate, it may
+                        cost more time before compute eer
+
 ```
 
 For example, to train CycleGAN model for voice conversion between ``SF1`` and ``TM1``:
