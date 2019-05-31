@@ -2,8 +2,7 @@
 
 Liu Tianchi
 
-National University of Singapore (NUS)
-Human Language Technology (HLT) 
+National University of Singapore (NUS) - Human Language Technology (HLT) 
 
 ## Introduction
 
@@ -21,46 +20,25 @@ Link of Paper:
 
 ```
 .
-├── convert.py
-├── demo
-├── download.py
-├── figures
-├── LICENSE.md
-├── model.py
-├── module.py
-├── preprocess.py
+├── demo_data
+├── Compute_EER.py
+├── Data_loader.py
+├── Pre_check.py
+├── Print_info.py
 ├── README.md
-├── train_log
-├── train.py
-└── utils.py
+├── compute_eer_SUV.sh
+├── config.py
+├── main.py
+├── model.py
+├── scores_eer.py
+├── trainer.py
 ```
 
 ## Usage
 
-### Download Dataset
+### Download Demo Data
 
-Download and unzip [VCC2016](https://datashare.is.ed.ac.uk/handle/10283/2211) dataset to designated directories.
-
-```bash
-$ python download.py --help
-usage: download.py [-h] [--download_dir DOWNLOAD_DIR] [--data_dir DATA_DIR]
-                   [--datasets DATASETS]
-
-Download CycleGAN voice conversion datasets.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --download_dir DOWNLOAD_DIR
-                        Download directory for zipped data
-  --data_dir DATA_DIR   Data directory for unzipped data
-  --datasets DATASETS   Datasets available: vcc2016
-```
-
-For example, to download the datasets to ``download`` directory and extract to ``data`` directory:
-
-```bash
-$ python download.py --download_dir ./download --data_dir ./data --datasets vcc2016
-```
+Download and unzip [demo_data](https://datashare.is.ed.ac.uk/handle/10283/2211) into ./demo_data
 
 ### Train Model
 
@@ -183,9 +161,7 @@ Download the pre-trained SF1-TF2 conversion model and conversion of all the vali
 * [Gated CNN TensorFlow](https://github.com/anantzoid/Language-Modeling-GatedCNN)
 
 ## To-Do List
-
+- [ ] running on CPU
+- [ ] link for demo data
+- [ ] GPU using fix in training progress
 - [ ] Parallelize data preprocessing
-- [ ] Evaluation metrics
-- [x] Hyper parameter tuning
-- [ ] Train more conversion models
-- [x] Argparse
