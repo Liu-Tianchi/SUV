@@ -1,28 +1,20 @@
-# Voice Converter CycleGAN
+# Speaker-utterance-verification(SUV) framework for text-dependent Speaker Verification
 
-Lei Mao
+Liu Tianchi
 
-University of Chicago
-
+National University of Singapore (NUS)
+Human Language Technology (HLT) 
 
 ## Introduction
 
-Cycle-consistent adversarial networks (CycleGAN) has been widely used for image conversions. It turns out that it could also be used for voice conversion. This is an implementation of CycleGAN on human speech conversions. The neural network utilized 1D gated convolution neural network (Gated CNN) for generator, and 2D Gated CNN for discriminator. The model takes Mel-cepstral coefficients ([MCEPs](https://github.com/eYSIP-2017/eYSIP-2017_Speech_Spoofing_and_Verification/wiki/Feature-Extraction-for-Speech-Spoofing)) (for spectral envelop) as input for voice conversions.
-
-<p align="center">
-    <img src = "./figures/teaser_high_res.png" width="100%">
-</p>
-
+Link of Paper:
 
 ## Dependencies
 
-* Python 3.5
-* Numpy 1.14
-* TensorFlow 1.8
-* ProgressBar2 3.37.1
-* LibROSA 0.6
-* FFmpeg 4.0
-* [PyWorld](https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder)
+* Python 3.6.8
+* Numpy 1.16.2
+* pytorch 1.1.0
+* [kaldi_io](https://github.com/vesis84/kaldi-io-for-python)
 
 
 ## Files
