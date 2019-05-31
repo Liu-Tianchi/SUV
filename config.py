@@ -30,11 +30,11 @@ def parse_args():
 
      # model arguments
      parser.add_argument('--dim_all', default=256, type=int,
-                         help='hidden dim of first layer LSTM')
+                         help='hidden dimension of first layer LSTM')
      parser.add_argument('--dim_spk', default=256, type=int,
-                         help='hidden dim of spk LSTM')
+                         help='hidden dimension of spk LSTM')
      parser.add_argument('--dim_utt', default=256, type=int,
-                         help='hidden dim of utt LSTM')
+                         help='hidden dimension of utt LSTM')
      parser.add_argument('--load_model', default=False,
                          help='whether to load model')
      parser.add_argument('--model_path',
@@ -42,7 +42,7 @@ def parse_args():
 
      # scores arguments
      parser.add_argument('--a_trade_off_flag', default=False,
-                         help='whether to activate a_trade_off, if activate, it may cost more time')
+                         help='whether to activate a_trade_off, if activate, it may cost more time before compute eer')
 
      args = parser.parse_args()
 
