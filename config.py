@@ -17,7 +17,7 @@ def parse_args():
                          help='the path to the trails folder of RSR2015 database')
      parser.add_argument('--kaldi_io_path', default=r'/home/tianchi/Software/kaldi-io/')
 
-     parser.add_argument('--demo', default=True,
+     parser.add_argument('--demo', default=False,
                          help='whether to run the demo set by author')
 
      # training arguments
