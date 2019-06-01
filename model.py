@@ -40,8 +40,8 @@ class lstm(nn.Module):
         lstm_out_all, self.hidden_all = self.lstm_all(batch, self.hidden_all)
         lstm_out_spk, self.hidden_spk = self.lstm_spk(lstm_out_all, self.hidden_spk)
 
-        dot_mul = torch.FloatTensor(self.args.batch_size, self.max_fealen, self.args.dim_spk).fill_(0)
-        for i in range(self.args.batch_size):
+        dot_mul = torch.FloatTensor(batch.shape[0], self.max_fealen, self.args.dim_spk).fill_(0)
+        for i in range(batch.shape[0]):
             dot_mul[i, 0:int(index[i]), :] = 1
 
         dot_mul = Variable(dot_mul).cuda()
@@ -59,7 +59,7 @@ class lstm(nn.Module):
         output = torch.squeeze(output_mean, dim=1)
 
         output = self.batchnorm1d_spk(output)
-        output = torch.squeeze(output)
+        # output = torch.squeeze(output)
         scores = F.log_softmax(output, dim=1)
 
         return scores
@@ -71,8 +71,8 @@ class lstm(nn.Module):
 
         lstm_out_utt, self.hidden_utt = self.lstm_utt(lstm_out_all, self.hidden_utt)
 
-        dot_mul = torch.FloatTensor(self.args.batch_size, self.max_fealen, self.args.dim_utt).fill_(0)
-        for i in range(self.args.batch_size):
+        dot_mul = torch.FloatTensor(batch.shape[0], self.max_fealen, self.args.dim_utt).fill_(0)
+        for i in range(batch.shape[0]):
             dot_mul[i, 0:int(index[i]), :] = 1
 
         dot_mul = Variable(dot_mul).cuda()
