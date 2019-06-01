@@ -106,11 +106,16 @@ And the path in this command should be changed according to your path before run
 
 ### Download Demo Data
 
-We prepare the demo data for devepolment_part1_male part of RSR2015 dataset in 'pickle' format. You may kindly download and unzip [demo_data](https://drive.google.com/file/d/1e52oFWSCLgGfew-611VQWltV84dhKD7H/view?usp=sharing) into ./demo_data 
+We prepare the demo data for devepolment_part2_male part of RSR2015 dataset in 'pickle' format. You may kindly download and unzip [demo_data](https://drive.google.com/file/d/1e52oFWSCLgGfew-611VQWltV84dhKD7H/view?usp=sharing) into ./demo_data 
 
-### VCC2016 SF1 and TF2 Conversion
+### Run demo 
 
+For single chip of 1080Ti, it may take 3 hours for training and 20 mins to fininsh testing and computing EER. You may use following command:
 
+```bash
+$ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
+```
+And the path in this command should be changed according to your path before running.
 
 ## Reference
 
