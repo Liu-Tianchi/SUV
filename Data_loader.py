@@ -53,11 +53,11 @@ def data_loader(args):
     if args.demo == True:
 
         print(' -------------- Load data via demo folder ------------------ ')
-        with open('./demo_data/fea_tr_dev_p2_m.pickle', 'rb') as handle:
+        with open('./demo_data/fea_tr_dev_p1_m.pickle', 'rb') as handle:
             u = pickle._Unpickler(handle)
             u.encoding = 'latin1'
             fea_tr = u.load()
-        with open('./demo_data/fea_te_dev_p2_m.pickle', 'rb') as handle:
+        with open('./demo_data/fea_te_dev_p1_m.pickle', 'rb') as handle:
             u = pickle._Unpickler(handle)
             u.encoding = 'latin1'
             fea_te = u.load()
