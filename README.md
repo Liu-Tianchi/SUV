@@ -54,7 +54,7 @@ Trails folder structrue:
     ├── part2
     ├── part3
     
-RSR2015 folder structrue (for feature extraction)
+RSR2015 folder structure (for feature extraction)
 ├── rsr_system_transfree
   ├── male
     ├── data
