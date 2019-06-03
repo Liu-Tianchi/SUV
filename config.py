@@ -6,7 +6,7 @@ def parse_args():
      # data set arguments
      parser.add_argument('--gender', default='male',
                          help='gender of data set, male or female')
-     parser.add_argument('--part', default='2',
+     parser.add_argument('--part', default='1',
                          help='part of data set, 1 or 2')
      parser.add_argument('--dev_eval', default='dev',
                          help='development or evaluation part of data set, dev or eval')
