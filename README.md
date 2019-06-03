@@ -1,6 +1,6 @@
 # Speaker-utterance-verification (SUV) Framework for Text-dependent Speaker Verification
 
-Liu Tianchi
+Liu Tianchi, 
 Human Language Technology (HLT) Laboratory,
 National University of Singapore (NUS).
 
