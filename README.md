@@ -132,7 +132,7 @@ And the path in this command should be changed according to your path before run
 
 ### Download Demo Data
 
-We prepare the demo data for devepolment_part1_male part of RSR2015 dataset in 'pickle' format. You may kindly download and unzip [demo_data](https://drive.google.com/file/d/1e52oFWSCLgGfew-611VQWltV84dhKD7H/view?usp=sharing) into ./demo_data 
+We prepare the demo data for devepolment_part1_male part of RSR2015 dataset in 'pickle' format. You may kindly download [demo_te_data](https://drive.google.com/file/d/1E_JuDCB1QDtY1wt7axfixl_tmWNU6ca7/view?usp=sharing) and [demo_tr_data](https://drive.google.com/file/d/1q6YuG-E-DvMrLvGxElWcStEPCYp0-HM2/view?usp=sharing) into ./demo_data 
 
 ### Run demo 
 
