@@ -142,11 +142,3 @@ For single chip of 1080Ti, it may take 3 hours for training and 20 mins to finin
 $ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
 ```
 And the path in this command should be changed according to your path before running.
-
-## Reference
-
-## To-Do List
-- [ ] running on CPU
-- [ ] link for demo data
-- [ ] GPU using fix in training progress
-- [ ] Parallelize data preprocessing
