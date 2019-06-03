@@ -4,9 +4,15 @@ Liu Tianchi
 
 National University of Singapore (NUS) - Human Language Technology (HLT) 
 
-## Introduction
+## Overview
 
-Link of Paper:
+This is a recipe unified framework for speaker and utterance verification.
+Details are given in the following paper:
+
+- L. Tianchi, M. Madhavi, R. Das and H. Li, "A Unified Framework for Speaker and Utterance Verification, " submitted to Proc. Interspeech 2019
+
+Please cite this paper if you use this code.
+
 
 ## Dependencies
 
