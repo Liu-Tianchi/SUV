@@ -53,8 +53,27 @@ Trails folder structrue:
       ├── trn 
     ├── part2
     ├── part3
+    
+RSR2015 folder structrue (for feature extraction)
+├── rsr_system_transfree
+  ├── male
+    ├── data
+      ├── dev_p1_tr
+      ├── dev_p1_te
+      ├── eval_p1_tr
+      ├── eval_p1_te
+      ...
+  ├── female
+    ├── data
+      ├── dev_p1_tr
+      ├── dev_p1_te
+      ├── eval_p1_tr
+      ├── eval_p1_te
+      ...
+  ├── scores
+  ├── conf
+  ...
 ```
-
 
 ## Usage
 
