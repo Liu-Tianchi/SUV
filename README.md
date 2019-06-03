@@ -20,8 +20,9 @@ Please cite this paper if you use this code.
 * Numpy 1.16.2
 * pytorch 1.1.0
 * [kaldi_io](https://github.com/vesis84/kaldi-io-for-python)
-* kaldi
+* [kaldi](https://github.com/kaldi-asr/kaldi) (for feature extraction)
 
+Please refer to `requirements.txt`.
 
 ## Files Structure
 
