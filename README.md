@@ -136,7 +136,7 @@ We prepare the demo data for devepolment_part1_male part of RSR2015 dataset in '
 
 ### Run demo 
 
-For single chip of 1080Ti, it may take 3 hours for training and 20 mins to fininsh testing and computing EER. You may use following command:
+For single chip of 1080Ti, it may take 4 hours for training and 20 mins to fininsh testing and computing EER. You may use following command:
 
 ```bash
 $ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
