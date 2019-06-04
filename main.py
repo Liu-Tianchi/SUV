@@ -3,10 +3,9 @@
 # pytorch 1.1.0
 # cuda verison 9.0
 
-# Project Name: Unified Speaker-Utterance
-# Author: Liu Tianchi (NUS HLT)
+# Author: Liu Tianchi (NUS-HLT)
 # Date: March 2019
-# Last Modify: April 2019
+# Last Modify: June 2019
 
 
 
