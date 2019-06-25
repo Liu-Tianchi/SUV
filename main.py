@@ -13,14 +13,6 @@ import time
 import re
 import numpy as np
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-# import torchvision
-from torch.autograd import Variable
-import os
-# from distutils.util import strtobool
-import math
 from config import parse_args
 import sys
 import random
