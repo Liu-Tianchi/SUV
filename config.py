@@ -4,12 +4,15 @@ def parse_args():
      parser = argparse.ArgumentParser(
          description='Speaker-Utterance Verification Framework')
      # data set arguments
-     parser.add_argument('--gender', default='male',
-                         help='gender of data set, male or female')
-     parser.add_argument('--part', default='1',
-                         help='part of data set, 1 or 2')
-     parser.add_argument('--dev_eval', default='dev',
-                         help='development or evaluation part of data set, dev or eval')
+     parser.add_argument('--gender', default='male', type=str,
+                         choices=['male', 'female'],
+                         help='gender of data set')
+     parser.add_argument('--part', default='1', type=str,
+                         choices=['1', '2'],
+                         help='part of data set')
+     parser.add_argument('--dev_eval', default='dev', type=str,
+                         choices=['dev', 'eval'],
+                         help='development or evaluation part of data set')
      parser.add_argument('--feature_path', default=r'/home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/',
                          help='the path to the feature and data folder of RSR2015 database')
 
@@ -25,8 +28,8 @@ def parse_args():
                          help='total epochs to run')
      parser.add_argument('--batch_size', default=128, type=int,
                          help='batch_size for both training and testing')
-     parser.add_argument('--GPU_avaiable', default=True,
-                         help='whether use GPU')
+     # parser.add_argument('--GPU_avaiable', default=True,
+     #                     help='whether use GPU')
 
      # model arguments
      parser.add_argument('--dim_all', default=256, type=int,
