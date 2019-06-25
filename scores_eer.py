@@ -1,6 +1,6 @@
 import re
 import numpy as np
-import sys
+# import sys
 
 def scores_generator(saving_path, args, data_pack, a = 0.5):
     if args.a_trade_off_flag:
@@ -24,20 +24,17 @@ def scores_generator(saving_path, args, data_pack, a = 0.5):
     probability_all = np.ones((num_labels_spk, num_labels_utt, 10, num_labels_spk, num_labels_utt),
                               dtype=np.float32)
 
-    probability_spk = np.expand_dims(probability_spk, axis=2)  # bz, 50, 1
-    probability_utt = np.expand_dims(probability_utt, axis=1)  # bz, 1 , 30
+    probability_spk = np.expand_dims(probability_spk, axis=2)
+    probability_utt = np.expand_dims(probability_utt, axis=1)
     probability_spk = np.repeat(probability_spk, repeats=num_labels_utt, axis=2)
     probability_utt = np.repeat(probability_utt, repeats=num_labels_spk, axis=1)
 
-    probability_utt_spk = probability_spk + probability_utt  # bz, 50, 30
-    # probability_utt_spk = np.expand_dims(probability_utt_spk, axis=0)  # bz, 50, 30
-    # probability_utt_spk = np.expand_dims(probability_utt_spk, axis=0)  # bz, 50, 30
-    # 50*30*10*50*30
+    probability_utt_spk = probability_spk + probability_utt
+
     for i in range(probability_spk.shape[0]):
         probability_all[int(target_te_0_numpy[i]), int(target_te_1_numpy[i]), int(session[i]), :,
         :] = probability_utt_spk[i, :, :]
 
-    # ccc = probability_all[12,13,2,12,0]
     trial_file_path = args.trails_path + 'part' + str(args.part) + r'/ndx/' + '3sess-pwd_' + str(args.dev_eval) + '_'
     if args.gender == 'male':
         trial_file_path += r'm.ndx'
@@ -154,6 +151,7 @@ def scores_generator(saving_path, args, data_pack, a = 0.5):
                     #     print('=========================== ERROR!!!! =============================')
                     #     print(test_spk, test_utt, test_ses, model_spk, model_utt)
                     #     print('imp_w')
+
 def scores(saving_path, args, data_pack):
     if args.a_trade_off_flag:
         for i in range(0, 21):

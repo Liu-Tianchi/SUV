@@ -1,18 +1,9 @@
-import model
 import time
 import numpy as np
 import torch
-import torch.nn as nn
 from torch.autograd import Variable
 import torch.nn.functional as F
 import random
-
-
-seed = 1
-torch.manual_seed(seed)
-torch.cuda.manual_seed(seed)
-np.random.seed(seed)
-random.seed(seed)
 
 class Trainer():
     def __init__(self, data_pack, saving_path, args, model, optimizer):
@@ -23,14 +14,24 @@ class Trainer():
         self.saving_path = saving_path
         self.optimizer = optimizer
     def init_hidden(self, batch_size, hidden_d):
-        if self.args.GPU_avaiable:
-            return (Variable(torch.zeros(1, batch_size, hidden_d)).cuda(),
-                    Variable(torch.zeros(1, batch_size, hidden_d)).cuda())
-        else:
-            return (Variable(torch.zeros(1, batch_size, hidden_d)),
-                    Variable(torch.zeros(1, batch_size, hidden_d)))
+        # if self.args.GPU_avaiable:
+        #     return (Variable(torch.zeros(1, batch_size, hidden_d)).cuda(),
+        #             Variable(torch.zeros(1, batch_size, hidden_d)).cuda())
+        # else:
+        #     return (Variable(torch.zeros(1, batch_size, hidden_d)),
+        #             Variable(torch.zeros(1, batch_size, hidden_d)))
+        return (Variable(torch.zeros(1, batch_size, hidden_d)).cuda(),
+                Variable(torch.zeros(1, batch_size, hidden_d)).cuda())
 
     def train(self):
+
+        # fix seed, you may remove this for random
+        seed = 1
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed(seed)
+        np.random.seed(seed)
+        random.seed(seed)
+
         print()
         print(' ----------------------------------------------------------- ')
         print(' --------------------- Start Training ---------------------- ')
@@ -51,10 +52,11 @@ class Trainer():
             for batch_idx in range(int(len(self.data_pack.fea_tr_key_list) // self.args.batch_size)):  # do not train the last batch
 
                 data = torch.from_numpy(self.data_pack.xtr[randseq[cnt: cnt + self.args.batch_size]])
-                if self.args.GPU_avaiable:
-                    data = Variable(data).type(torch.FloatTensor).cuda()
-                else:
-                    data = Variable(data).type(torch.FloatTensor)
+                # if self.args.GPU_avaiable:
+                #     data = Variable(data).type(torch.FloatTensor).cuda()
+                # else:
+                #     data = Variable(data).type(torch.FloatTensor)
+                data = Variable(data).type(torch.FloatTensor).cuda()
                 # utt_task:
                 self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
                 self.hidden_utt = self.init_hidden(data.shape[0], self.args.dim_utt)
@@ -62,10 +64,11 @@ class Trainer():
                 index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + data.shape[0]]]
                 
                 target_utt = torch.from_numpy(self.data_pack.ytr_utt[randseq[cnt: cnt + data.shape[0]]])
-                if self.args.GPU_avaiable:
-                    target_utt = Variable(target_utt).type(torch.LongTensor).cuda()
-                else:
-                    target_utt = Variable(target_utt).type(torch.LongTensor)
+                # if self.args.GPU_avaiable:
+                #     target_utt = Variable(target_utt).type(torch.LongTensor).cuda()
+                # else:
+                #     target_utt = Variable(target_utt).type(torch.LongTensor)
+                target_utt = Variable(target_utt).type(torch.LongTensor).cuda()
                 self.optimizer.zero_grad()
     
                 output_utt = self.model.forward_utt(data, index_tr_sub, self.hidden_all, self.hidden_utt)
@@ -82,11 +85,11 @@ class Trainer():
                 index_tr_sub = self.data_pack.index_tr[randseq[cnt: cnt + data.shape[0]]]
                 
                 target_spk = torch.from_numpy(self.data_pack.ytr_spk[randseq[cnt: cnt + data.shape[0]]])
-                if self.args.GPU_avaiable:
-                    target_spk = Variable(target_spk).type(torch.LongTensor).cuda()
-                else:
-                    target_spk = Variable(target_spk).type(torch.LongTensor)
-    
+                # if self.args.GPU_avaiable:
+                #     target_spk = Variable(target_spk).type(torch.LongTensor).cuda()
+                # else:
+                #     target_spk = Variable(target_spk).type(torch.LongTensor)
+                target_spk = Variable(target_spk).type(torch.LongTensor).cuda()
                 self.optimizer.zero_grad()
 
                 output_spk = self.model.forward_spk(data, index_tr_sub, self.hidden_all, self.hidden_spk)
@@ -134,13 +137,12 @@ class Trainer():
         for batch_idx in range(int(len(self.data_pack.fea_te_key_list) // self.args.batch_size) + 1):
             # ses = yte_ses[cnt:min(len(fea_te_key_list), cnt + batch_size)]
 
-
             data = torch.from_numpy(self.data_pack.xte[cnt: min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)])
-            if self.args.GPU_avaiable:
-                data = Variable(data).type(torch.FloatTensor).cuda()
-            else:
-                data = Variable(data).type(torch.FloatTensor)
-
+            # if self.args.GPU_avaiable:
+            #     data = Variable(data).type(torch.FloatTensor).cuda()
+            # else:
+            #     data = Variable(data).type(torch.FloatTensor)
+            data = Variable(data).type(torch.FloatTensor).cuda()
 
             # spk_task:
             self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
@@ -150,16 +152,18 @@ class Trainer():
             target_te_spk_numpy = self.data_pack.yte_spk[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
 
             target_te_spk = torch.from_numpy(target_te_spk_numpy)
-            if self.args.GPU_avaiable:
-                target_te_spk = Variable(target_te_spk).type(torch.LongTensor).cuda()
-            else:
-                target_te_spk = Variable(target_te_spk).type(torch.LongTensor)
+            # if self.args.GPU_avaiable:
+            #     target_te_spk = Variable(target_te_spk).type(torch.LongTensor).cuda()
+            # else:
+            #     target_te_spk = Variable(target_te_spk).type(torch.LongTensor)
+            target_te_spk = Variable(target_te_spk).type(torch.LongTensor).cuda()
             output_spk = self.model.forward_spk(data, index_te_sub, self.hidden_all, self.hidden_spk)
             pred = output_spk.data.max(1, keepdim=True)[1]
-            if self.args.GPU_avaiable:
-                correct_spk += pred.eq(target_te_spk.data.view_as(pred)).cuda().sum()
-            else:
-                correct_spk += pred.eq(target_te_spk.data.view_as(pred)).sum()
+            # if self.args.GPU_avaiable:
+            #     correct_spk += pred.eq(target_te_spk.data.view_as(pred)).cuda().sum()
+            # else:
+            #     correct_spk += pred.eq(target_te_spk.data.view_as(pred)).sum()
+            correct_spk += pred.eq(target_te_spk.data.view_as(pred)).cuda().sum()
 
             # utt_task:
             self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
@@ -168,17 +172,19 @@ class Trainer():
             target_te_utt_numpy = self.data_pack.yte_utt[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
             target_te_utt = torch.from_numpy(target_te_utt_numpy)
 
-            if self.args.GPU_avaiable:
-                target_te_utt = Variable(target_te_utt).type(torch.LongTensor).cuda()
-            else:
-                target_te_utt = Variable(target_te_utt).type(torch.LongTensor)
+            # if self.args.GPU_avaiable:
+            #     target_te_utt = Variable(target_te_utt).type(torch.LongTensor).cuda()
+            # else:
+            #     target_te_utt = Variable(target_te_utt).type(torch.LongTensor)
+            target_te_utt = Variable(target_te_utt).type(torch.LongTensor).cuda()
             output_utt = self.model.forward_utt(data, index_te_sub, self.hidden_all, self.hidden_utt)
             pred = output_utt.data.max(1, keepdim=True)[1]
 
-            if self.args.GPU_avaiable:
-                correct_utt += pred.eq(target_te_utt.data.view_as(pred)).cuda().sum()
-            else:
-                correct_utt += pred.eq(target_te_utt.data.view_as(pred)).sum()
+            # if self.args.GPU_avaiable:
+            #     correct_utt += pred.eq(target_te_utt.data.view_as(pred)).cuda().sum()
+            # else:
+            #     correct_utt += pred.eq(target_te_utt.data.view_as(pred)).sum()
+            correct_utt += pred.eq(target_te_utt.data.view_as(pred)).cuda().sum()
 
             if batch_idx == 0:
                 eer_spk_value = output_spk.data.cpu().numpy().copy()
