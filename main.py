@@ -8,7 +8,8 @@
 
 import torch
 import torch.optim as optim
-
+import numpy as np
+import random
 from config import parse_args
 from Data_loader import data_packed
 from Print_info import print_info
@@ -40,6 +41,13 @@ def main():
     # if args.GPU_avaiable:
     #     model.cuda()
     model.cuda()
+
+    # fix seed, you may remove this for random
+    seed = 1
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
 
     # train
     trainer = Trainer(data_pack, saving_path, args, model, optimizer)

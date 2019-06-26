@@ -25,13 +25,6 @@ class Trainer():
 
     def train(self):
 
-        # fix seed, you may remove this for random
-        seed = 1
-        torch.manual_seed(seed)
-        torch.cuda.manual_seed(seed)
-        np.random.seed(seed)
-        random.seed(seed)
-
         print()
         print(' ----------------------------------------------------------- ')
         print(' --------------------- Start Training ---------------------- ')

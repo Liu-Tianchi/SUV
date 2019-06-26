@@ -1,6 +1,7 @@
 import os
 
 def compute_EER(saving_path, args):
+    # use the compute-eer from kaldi
     if args.a_trade_off_flag:
         for i in range(0, 21):
             a = float(i) / 20
