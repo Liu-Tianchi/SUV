@@ -3,7 +3,7 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
-import random
+# import random
 
 class Trainer():
     def __init__(self, data_pack, saving_path, args, model, optimizer):

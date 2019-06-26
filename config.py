@@ -20,7 +20,7 @@ def parse_args():
                          help='the path to the trails folder of RSR2015 database')
      parser.add_argument('--kaldi_io_path', default=r'/home/tianchi/Software/kaldi-io/')
 
-     parser.add_argument('--demo', default=False,
+     parser.add_argument('--demo', default=False, type=bool,
                          help='whether to run the demo set by author')
 
      # training arguments
@@ -38,13 +38,13 @@ def parse_args():
                          help='hidden dimension of spk LSTM')
      parser.add_argument('--dim_utt', default=256, type=int,
                          help='hidden dimension of utt LSTM')
-     parser.add_argument('--load_model', default=False,
+     parser.add_argument('--load_model', default=False, type=bool,
                          help='whether to load model')
      parser.add_argument('--model_path',
                          help='the path of the model that you want to load')
 
      # scores arguments
-     parser.add_argument('--a_trade_off_flag', default=False,
+     parser.add_argument('--a_trade_off_flag', default=False, type=bool,
                          help='whether to activate a_trade_off, if activate, it may cost more time before compute eer')
 
      args = parser.parse_args()
