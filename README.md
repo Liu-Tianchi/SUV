@@ -142,6 +142,10 @@ $ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_
 ```
 And the path in this command should be changed according to your path before running.
 
+## Noted
+The results in the paper are evaluated in Python2 environment. However, as its support is ending, we have converted codes to Python3 platform for future use and hence there may be a minor changes. 
+
 ## To do list
 [ ] Pre-trained Model for demo
+
 [ ] Load pre-trained model
