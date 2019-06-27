@@ -8,7 +8,7 @@ class Trainer():
     def __init__(self, data_pack, saving_path, args, model, optimizer):
         super(Trainer, self).__init__()
         self.args = args
-        self.model =model
+        self.model = model
         self.data_pack = data_pack
         self.saving_path = saving_path
         self.optimizer = optimizer

@@ -69,7 +69,7 @@ def data_loader(args):
         read_kaldi_command_tr = r'ark:copy-feats scp:' + path_data_folder + r'_tr/feats.scp ark:- | apply-cmvn  --norm-vars=true --utt2spk=ark:' + path_data_folder + r'_tr/utt2spk scp:' + path_data_folder + r'_tr/cmvn.scp ark:- ark:- | add-deltas ark:- ark:- |'
         read_kaldi_command_te = r'ark:copy-feats scp:' + path_data_folder + r'_te/feats.scp ark:- | apply-cmvn  --norm-vars=true --utt2spk=ark:' + path_data_folder + r'_te/utt2spk scp:' + path_data_folder + r'_te/cmvn.scp ark:- ark:- | add-deltas ark:- ark:- |'
 
-        a = kaldi_io.read_mat_ark(read_kaldi_command_tr)
+        # a = kaldi_io.read_mat_ark(read_kaldi_command_tr)
         fea_tr = {k: m for k, m in kaldi_io.read_mat_ark(read_kaldi_command_tr)}
         fea_te = {k: m for k, m in kaldi_io.read_mat_ark(read_kaldi_command_te)}
 
