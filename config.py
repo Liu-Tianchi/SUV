@@ -13,10 +13,10 @@ def parse_args():
      parser.add_argument('--dev_eval', default='dev', type=str,
                          choices=['dev', 'eval'],
                          help='development or evaluation part of data set')
-     parser.add_argument('--feature_path', default=r'/home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/',
+     parser.add_argument('--feature_path', default=r'/home/tianchi/kaldi/egs/rsr_system_transfree/',
                          help='the path to the feature and data folder of RSR2015 database')
 
-     parser.add_argument('--trails_path', default=r'/home/tianchi/database/RSR2015/key/',
+     parser.add_argument('--trails_path', default=r'/media/tianchi/Tianchi/local_ubuntu_lab/database/RSR2015/key/',
                          help='the path to the trails folder of RSR2015 database')
      parser.add_argument('--kaldi_io_path', default=r'/home/tianchi/Software/kaldi-io/')
 

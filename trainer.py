@@ -3,7 +3,6 @@ import numpy as np
 import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
-# import random
 
 class Trainer():
     def __init__(self, data_pack, saving_path, args, model, optimizer):
@@ -13,6 +12,7 @@ class Trainer():
         self.data_pack = data_pack
         self.saving_path = saving_path
         self.optimizer = optimizer
+
     def init_hidden(self, batch_size, hidden_d):
         # if self.args.GPU_avaiable:
         #     return (Variable(torch.zeros(1, batch_size, hidden_d)).cuda(),
@@ -24,7 +24,6 @@ class Trainer():
                 Variable(torch.zeros(1, batch_size, hidden_d)).cuda())
 
     def train(self):
-
         print()
         print(' ----------------------------------------------------------- ')
         print(' --------------------- Start Training ---------------------- ')

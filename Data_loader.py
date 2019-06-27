@@ -2,7 +2,7 @@
 
 import numpy as np
 import os
-# import sys
+import sys
 import pickle
 
 
@@ -69,11 +69,19 @@ def data_loader(args):
         read_kaldi_command_tr = r'ark:copy-feats scp:' + path_data_folder + r'_tr/feats.scp ark:- | apply-cmvn  --norm-vars=true --utt2spk=ark:' + path_data_folder + r'_tr/utt2spk scp:' + path_data_folder + r'_tr/cmvn.scp ark:- ark:- | add-deltas ark:- ark:- |'
         read_kaldi_command_te = r'ark:copy-feats scp:' + path_data_folder + r'_te/feats.scp ark:- | apply-cmvn  --norm-vars=true --utt2spk=ark:' + path_data_folder + r'_te/utt2spk scp:' + path_data_folder + r'_te/cmvn.scp ark:- ark:- | add-deltas ark:- ark:- |'
 
+        a = kaldi_io.read_mat_ark(read_kaldi_command_tr)
         fea_tr = {k: m for k, m in kaldi_io.read_mat_ark(read_kaldi_command_tr)}
         fea_te = {k: m for k, m in kaldi_io.read_mat_ark(read_kaldi_command_te)}
-    print(' ------------------------ Done! ---------------------------- ')
-    print(' ----------------------------------------------------------- ')
-    
+
+    if int(len(fea_tr)) < 1 or int(len(fea_te)) < 1:
+        print(' ----------------- Loading data failed ----------------------')
+        sys.exit(0)
+    else:
+        print()
+        print(' ------------------------ Done! ---------------------------- ')
+        print(' --------- # of training: {:4d}, # of testing: {:4d} ---------'.format(len(fea_tr), len(fea_te)))
+        print(' ----------------------------------------------------------- ')
+
     max_fealen = 0  # max length of feature
     # min_fealen = 10000
     fea_tr_key_list = list(fea_tr.keys())

@@ -19,7 +19,14 @@ from scores_eer import scores
 from model import lstm
 from Compute_EER import compute_EER
 
+seed = 1
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+np.random.seed(seed)
+random.seed(seed)
+
 def main():
+
     # args from config
     args = parse_args()
 
@@ -33,6 +40,7 @@ def main():
     # print running information
     print_info(saving_path, args, data_pack)
 
+
     # model
     model = lstm(data_pack, args)
     optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.5)
@@ -41,13 +49,6 @@ def main():
     # if args.GPU_avaiable:
     #     model.cuda()
     model.cuda()
-
-    # fix seed, you may remove this for random
-    seed = 1
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    np.random.seed(seed)
-    random.seed(seed)
 
     # train
     trainer = Trainer(data_pack, saving_path, args, model, optimizer)
