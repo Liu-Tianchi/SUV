@@ -132,9 +132,10 @@ And the path in this command should be changed according to your path before run
 ### Demo Data
 
 ~~We prepare the demo data for development_part1_male part of RSR2015 data set in 'pickle' format. You may kindly download demo_te_data and demo_tr_data into ./demo_data~~
+
 Due to the RSR2015 is a private dataset, we can not provide the data or extracted feature in 'pickle' format. Please kindly follow the folder structure above and install kaldi and kaldi-io to extract feature and run the training steps.
 
-~~### Run demo ~~
+### Run demo
 
 ~~For single chip of 2080Ti, it may take 4 hours for training and 10 mins to finish testing and computing EER. You may use following command:~~
 
