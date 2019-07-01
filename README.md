@@ -131,20 +131,7 @@ And the path in this command should be changed according to your path before run
 
 ### Demo Data
 
-~~We prepare the demo data for development_part1_male part of RSR2015 data set in 'pickle' format. You may kindly download demo_te_data and demo_tr_data into ./demo_data~~
-
-Due to the RSR2015 is a private dataset, we can not provide the data or extracted feature in 'pickle' format. Please kindly follow the folder structure above and install kaldi and kaldi-io to extract feature and run the training steps.
-
-### Run demo
-
-~~For single chip of 2080Ti, it may take 4 hours for training and 10 mins to finish testing and computing EER. You may use following command:~~
-
-```bash
-$ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
-```
-
-~~And the path in this command should be changed according to your path before running.~~
-
+We prepared feature data in pickle for mat for running the demo. However, because RSR2015 is a private dataset, we can not provide the data or extracted feature. Please kindly follow the folder structure above and install kaldi and kaldi-io to extract feature and run the training steps.
 
 ## Noted
 The results in the paper are evaluated in Python2 environment with torch==0.4. However, as its support is ending, we have converted codes to Python3 platform for future use and hence there may be a minor changes. 
