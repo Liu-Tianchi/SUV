@@ -139,9 +139,9 @@ Due to the RSR2015 is a private dataset, we can not provide the data or extracte
 
 ~~For single chip of 2080Ti, it may take 4 hours for training and 10 mins to finish testing and computing EER. You may use following command:~~
 
-~~```bash
+```bash
 $ python main.py --demo True --feature_path /home/tianchi/Desktop/kaldi/egs/rsr_system_transfree/ --trails_path /home/tianchi/database/RSR2015/key/
-```~~
+```
 
 ~~And the path in this command should be changed according to your path before running.~~
 
@@ -153,3 +153,5 @@ The results in the paper are evaluated in Python2 environment with torch==0.4. H
 [ ] Pre-trained Model for demo
 
 [ ] Load pre-trained model
+
+[ ] Open source of Python2 version
