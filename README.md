@@ -9,7 +9,7 @@ National University of Singapore (NUS).
 This is a recipe unified framework for speaker and utterance verification.
 Details are given in the following paper:
 
-- L. Tianchi, M. Madhavi, R. K. Das and H. Li, "A Unified Framework for Speaker and Utterance Verification, " submitted to Proc. Interspeech 2019
+- L. Tianchi, M. Madhavi, R. K. Das and H. Li, "A Unified Framework for Speaker and Utterance Verification, " in Proc. Interspeech 2019, Graz, Austria, 15-19 September 2019.
 
 Please cite this paper if you use this code.
 
