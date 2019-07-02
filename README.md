@@ -133,12 +133,6 @@ And the path in this command should be changed according to your path before run
 
 We prepared feature data in '.pickle' format for running the demo. However, because RSR2015 is a private dataset, we can not provide the data or extracted feature. Please kindly follow the folder structure above and install kaldi and kaldi-io to extract feature and run the training steps.
 
-## Noted
+## Note
 The results in the paper are evaluated in Python2 environment with torch==0.4. However, as its support is ending, we have converted codes to Python3 platform for future use and hence there may be a minor changes. 
 
-## To do list
-[ ] Pre-trained Model for demo
-
-[ ] Load pre-trained model
-
-[ ] Open source of Python2 version
