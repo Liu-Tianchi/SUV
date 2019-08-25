@@ -10,7 +10,7 @@ def parse_args():
      parser.add_argument('--part', default='1', type=str,
                          choices=['1', '2'],
                          help='part of data set')
-     parser.add_argument('--dev_eval', default='dev', type=str,
+     parser.add_argument('--dev_eval', default='eval', type=str,
                          choices=['dev', 'eval'],
                          help='development or evaluation part of data set')
      parser.add_argument('--feature_path', default=r'/home/tianchi/kaldi/egs/rsr_system_transfree/',
