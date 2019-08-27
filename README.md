@@ -17,8 +17,11 @@ Please cite this paper if you use this code.
 ## Dependencies
 
 * Python 3.6.8
+  - conda create -n SUV python=3.6.8
 * Numpy 1.16.2
 * pytorch 1.1.0
+  (if you are using cuda10, you can use conmand below)
+  - conda install pytorch=1.1.0 torchvision cudatoolkit=10.0 -c pytorch
 * [kaldi_io](https://github.com/vesis84/kaldi-io-for-python)
 * [kaldi](https://github.com/kaldi-asr/kaldi) (for feature extraction)
 
