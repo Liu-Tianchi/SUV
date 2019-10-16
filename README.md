@@ -139,3 +139,7 @@ We prepared feature data in '.pickle' format for running the demo. However, beca
 ## Note
 The results in the paper are evaluated in Python2 environment with torch==0.4. However, as its support is ending, we have converted codes to Python3 platform for future use and hence there may be a minor changes. 
 
+## License:
+The codes in this repository are licensed under the GNU General Public License Version 3. For commercial use of this code and models, separate commercial licensing is also available. 
+
+
