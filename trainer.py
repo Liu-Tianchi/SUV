@@ -138,7 +138,7 @@ class Trainer():
 
             # spk_task:
             self.hidden_all = self.init_hidden(data.shape[0], self.args.dim_all)
-            self.hidden_spk = self.init_hidden(data.shape[0], self.args.dim_utt)
+            self.hidden_spk = self.init_hidden(data.shape[0], self.args.dim_spk)
             index_te_sub = self.data_pack.index_te[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
 
             target_te_spk_numpy = self.data_pack.yte_spk[cnt:min(len(self.data_pack.fea_te_key_list), cnt + self.args.batch_size)]
