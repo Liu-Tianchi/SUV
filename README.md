@@ -143,7 +143,7 @@ The results in the paper are evaluated in Python2 environment with torch==0.4.
 The codes in this repository are licensed under the GNU General Public License Version 3. For commercial use of this code and models, separate commercial licensing is also available. 
 
 ## Cite:
-
+```
 @inproceedings{liu19m_interspeech,
   author={Tianchi Liu and Maulik Madhavi and Rohan Kumar Das and Haizhou Li},
   title={{A Unified Framework for Speaker and Utterance Verification}},
@@ -152,3 +152,4 @@ The codes in this repository are licensed under the GNU General Public License V
   pages={4320--4324},
   doi={10.21437/Interspeech.2019-1994}
 }
+```
