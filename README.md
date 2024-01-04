@@ -137,9 +137,18 @@ And the path in this command should be changed according to your path before run
 We prepared feature data in '.pickle' format for running the demo. However, because RSR2015 is a private dataset, we can not provide the data or extracted feature. Please kindly follow the folder structure above and install kaldi and kaldi-io to extract feature and run the training steps.
 
 ## Note
-The results in the paper are evaluated in Python2 environment with torch==0.4. However, as its support is ending, we have converted codes to Python3 platform for future use and hence there may be a minor changes. 
+The results in the paper are evaluated in Python2 environment with torch==0.4.
 
 ## License:
 The codes in this repository are licensed under the GNU General Public License Version 3. For commercial use of this code and models, separate commercial licensing is also available. 
 
+## Cite:
 
+@inproceedings{liu19m_interspeech,
+  author={Tianchi Liu and Maulik Madhavi and Rohan Kumar Das and Haizhou Li},
+  title={{A Unified Framework for Speaker and Utterance Verification}},
+  year=2019,
+  booktitle={Proc. Interspeech 2019},
+  pages={4320--4324},
+  doi={10.21437/Interspeech.2019-1994}
+}
